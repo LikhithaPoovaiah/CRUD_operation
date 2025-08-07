@@ -1,0 +1,134 @@
+<!-- table -->
+ <div class="row">
+ <div class="col-12">
+  <div class="card">
+    <div class="card card-header bg-success">
+
+      <h6 class ="text-center">Employee Details</h6>
+
+    </div>
+    <div class="card-body">
+      <div class="">
+        <div class="col-12">
+          <table class="table table-bordered ">
+            <thead>
+              <th>Employee Id</th>
+              <th>Employee Name</th>
+              <th>City</th>
+              <th>Contact No</th>
+              <th>Email ID</th>
+              <th>State</th>
+              <th>Address</th>
+              <th>Pin Code</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let e of employelist; let i =index">
+    <td>{{i + 1}}</td>
+                <td>{{e.name}}</td>
+                  <td>{{e.city}}</td>
+                    <td>{{e.contactno}}</td>
+                      <td>{{e.emailId}}</td>
+                        <td>{{e.state}}</td>
+                          <td>{{e.address}}</td>
+                            <td>{{e.pincode}}</td>
+                            <td class="text-center">
+                              <button class="btn btn-primary" (click)="edit(e)">Edit</button>
+                              <button class="btn btn-danger" (click)="delete(e)">Delete</button>
+
+                            </td>
+
+              </tr>
+         
+        
+           
+
+
+          </table>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
+ 
+ <!-- Form -->
+
+ <div class="container">
+    <div class="col-4">
+    <div class="card">
+     <div class="card-header bg-success">
+      <h6 class="text-center">Employee Form</h6>
+     </div>
+     <div class="card-body ">
+      <form [formGroup]="employeeForm" >
+         <div class="col-6">
+          
+                <label>EmployeeID</label>
+                <input type="text" class="form-control" formControlName="empId"> 
+           </div>
+        
+        <div class="col-6">
+          
+                <label>Employee Name</label>
+                <input type="text" class="form-control" formControlName="name"> 
+           </div>
+          <div class="col-6">
+                       <label>City </label>
+        <input type="text" class="form-control" formControlName="city">
+
+          </div>
+          <div class="col-6">
+              <label>Contact Number</label>
+        <input type="text" class="form-control" formControlName="contactno">
+
+          </div>
+          <div class="col-6">
+              <label>Email ID</label>
+        <input type="text" class="form-control" formControlName="emailId">
+
+          </div>
+          <div class="col-6">
+              <label>State</label>
+        <input type="text" class="form-control" formControlName="state">
+
+          </div>
+          <div class="col-6">
+              <label>Address</label>
+                <textarea class="form-control" formControlName="address"></textarea>
+
+          </div>
+          <div class="col-6">
+               <label>PinCode</label>
+        <input type="text" class="form-control" formControlName="pincode">
+
+          </div>
+          <div class="col-6">
+               <div class="row ">
+          <div class="col-6 pt-2 text-center">
+          <button class="btn btn-primary ml-xl-12" (click)="reset()">
+            Reset
+           
+          </button>
+          <div *ngIf="!isEditing">
+<button class="btn btn-secondary ml-xl-12" (click)="save()">Save</button>
+          </div>
+          <div *ngIf="isEditing">
+ <button class="btn btn-secondary ml-xl-12" (click)="update()">Update</button>
+          </div>
+          
+           
+           </div>
+        </div>
+
+          </div>
+        
+      </form>
+     </div>
+
+    </div>
+  </div>
+ </div>
+
+
+ </div>
+
